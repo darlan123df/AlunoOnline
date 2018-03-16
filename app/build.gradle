@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "br.iesb.alunoonline.androidmaps"
+        applicationId "br.iesb.alunoonline"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
@@ -30,5 +30,8 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:11.8.0'
     compile 'com.google.firebase:firebase-database:11.8.0'
     compile 'com.google.android.gms:play-services-maps:11.8.0'
+    //login google.
+    compile 'com.google.firebase:firebase-auth:11.8.0'
+    compile 'com.google.android.gms:play-services-auth:11.8.0'
 }
 apply plugin: 'com.google.gms.google-services'
