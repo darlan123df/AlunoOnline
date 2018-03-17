@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
+    //AUTENTICAÇÃO GOOGLE.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-
+    //AUTENTICAÇÃO GOOGLE.
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
