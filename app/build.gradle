@@ -33,5 +33,7 @@ dependencies {
     //login google.
     compile 'com.google.firebase:firebase-auth:11.8.0'
     compile 'com.google.android.gms:play-services-auth:11.8.0'
+    //LOGIN FACEBOOK
+    implementation 'com.facebook.android:facebook-login:[4,5)'
 }
 apply plugin: 'com.google.gms.google-services'
