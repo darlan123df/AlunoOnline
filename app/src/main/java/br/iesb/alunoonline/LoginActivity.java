@@ -117,11 +117,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            Intent t = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(t);
+
                             //PEGA O E-MAIL USADO PARA LOGAR NO APP
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            Intent t = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(t);
                             Toast.makeText(LoginActivity.this,"Bem vindo ao Google.",Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(LoginActivity.this,"Erro de login.",Toast.LENGTH_LONG).show();

@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,6 +21,7 @@ public class PerfilActivity extends AppCompatActivity {
     private EditText txtCurso1;
     private EditText txtCampus1;
     private EditText txtInteresses1;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class PerfilActivity extends AppCompatActivity {
         txtCurso1 = findViewById(R.id.txtCurso);
         txtCampus1 = findViewById(R.id.txtCampus);
         txtInteresses1 = findViewById(R.id.txtInteresses);
+
+        mAuth = FirebaseAuth.getInstance();
 
         Button bt = (Button) findViewById(R.id.btnGravar);
         bt.setOnClickListener(new View.OnClickListener() {
@@ -52,10 +57,13 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     public void gravar(){
+        FirebaseUser user = mAuth.getCurrentUser();
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         Aluno aluno = new Aluno();
 
+        aluno.email = user.getEmail();
         aluno.nome = txtName1.getText().toString();
         aluno.matricula = Integer.parseInt(txtMatricula1.getText().toString());
         aluno.curso = txtCurso1.getText().toString();
